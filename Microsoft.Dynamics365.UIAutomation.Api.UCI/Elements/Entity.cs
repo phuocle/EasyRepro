@@ -35,8 +35,11 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
 
         /// <summary>
         /// Clears a value from the LookupItem provided
+        /// Can be used on a lookup, customer, owner, or activityparty field
         /// </summary>
         /// <param name="control"></param>
+        /// <example>xrmApp.Entity.ClearValue(new LookupItem { Name = "parentcustomerid" });</example>
+        /// <example>xrmApp.Entity.ClearValue(new LookupItem { Name = "to" });</example>
         public void ClearValue(LookupItem control)
         {
             _client.ClearValue(control);
@@ -103,7 +106,17 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
-        /// Gets the value of an OptionSet from the header
+        /// Gets the value of an ActivityParty Lookup from the header
+        /// </summary>
+        /// <param name="controls">The activityparty lookup field name, value or index of the lookup.</param>
+        /// <example>xrmApp.Entity.GetHeaderValue(new LookupItem[] { new LookupItem { Name = "to" } });</example>
+        public string[] GetHeaderValue(LookupItem[] controls)
+        {
+            return _client.GetValue(controls);
+        }
+
+        /// <summary>
+        /// Gets the value of a picklist or status field from the header
         /// </summary>
         /// <param name="option">The option you want to Get.</param>
         /// <example>xrmBrowser.Entity.GetValue(new OptionSet { Name = "preferredcontactmethodcode"}); </example>
@@ -178,6 +191,16 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
+        /// Gets the value of an ActivityParty Lookup.
+        /// </summary>
+        /// <param name="controls">The activityparty lookup field name, value or index of the lookup.</param>
+        /// <example>xrmApp.Entity.GetValue(new LookupItem[] { new LookupItem { Name = "to" } });</example>
+        public string[] GetValue(LookupItem[] controls)
+        {
+            return _client.GetValue(controls);
+        }
+
+        /// <summary>
         /// Gets the value of a field.
         /// </summary>
         /// <param name="control">The schema name of the field</param>
@@ -187,7 +210,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
-        /// Gets the value of a OptionSet.
+        /// Gets the value of a picklist or status field.
         /// </summary>
         /// <param name="option">The option you want to set.</param>
         public string GetValue(OptionSet optionSet)
@@ -285,6 +308,16 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
+        /// Sets the value of am ActivityParty Lookup in the header
+        /// </summary>
+        /// <param name="controls">The activityparty lookup field name, value or index of the lookup.</param>
+        /// <example>xrmApp.Entity.SetHeaderValue(new LookupItem[] { new LookupItem { Name = "to", Value = "A. Datum Corporation (sample)" } });</example>
+        public void SetHeaderValue(LookupItem[] controls)
+        {
+            _client.SetHeaderValue(controls);
+        }
+
+        /// <summary>
         /// Sets/Removes the value from the multselect type control in the header
         /// </summary>
         /// <param name="option">Object of type MultiValueOptionSet containing name of the Field and the values to be set/removed</param>
@@ -294,7 +327,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
-        /// Sets the value of an OptionSet in the header
+        /// Sets the value of a picklist or status field in the header
         /// </summary>
         /// <param name="option">The option you want to set.</param>
         public void SetHeaderValue(OptionSet control)
@@ -331,7 +364,17 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         }
 
         /// <summary>
-        /// Sets the value of a picklist.
+        /// Sets the value of an ActivityParty Lookup.
+        /// </summary>
+        /// <param name="controls">The activityparty lookup field name, value or index of the lookup.</param>
+        /// <example>xrmApp.Entity.SetValue(new LookupItem[] { new LookupItem { Name = "to", Value = "A. Datum Corporation (sample)" } });</example>
+        public void SetValue(LookupItem[] controls, int index = 0)
+        {
+            _client.SetValue(controls, index);
+        }
+
+        /// <summary>
+        /// Sets the value of a picklist or status field.
         /// </summary>
         /// <param name="option">The option you want to set.</param>
         public void SetValue(OptionSet optionSet)
@@ -386,6 +429,26 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
         public void SelectForm(string formName)
         {
             _client.SelectForm(formName);
+        }
+
+        /// <summary>
+        /// Adds values to an ActivityParty Lookup.
+        /// </summary>
+        /// <param name="controls">The activityparty lookup field name, value or index of the lookup.</param>
+        /// <example>xrmApp.Entity.AddValues(new LookupItem[] { new LookupItem { Name = "to", Value = "A. Datum Corporation (sample)" } });</example>
+        public void AddValues(LookupItem[] controls, int index = 0)
+        {
+            _client.AddValues(controls, index);
+        }
+
+        /// <summary>
+        /// Removes values from an ActivityParty Lookup.
+        /// </summary>
+        /// <param name="controls">The activityparty lookup field name, value or index of the lookup.</param>
+        /// <example>xrmApp.Entity.RemoveValues(new LookupItem[] { new LookupItem { Name = "to", Value = "A. Datum Corporation (sample)" } });</example>
+        public void RemoveValues(LookupItem[] controls)
+        {
+            _client.RemoveValues(controls);
         }
     }   
 }

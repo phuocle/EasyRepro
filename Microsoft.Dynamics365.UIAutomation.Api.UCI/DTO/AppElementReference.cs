@@ -36,6 +36,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             public static string QuickCreateMenuList = "Nav_QuickCreateMenuList";
             public static string QuickCreateMenuItems = "Nav_QuickCreateMenuItems";
             public static string PinnedSitemapEntity = "Nav_PinnedSitemapEntity";
+            public static string SitemapMenuGroup = "Nav_SitemapMenuGroup";
             public static string SitemapMenuItems = "Nav_SitemapMenuItems";
             public static string SitemapSwitcherButton = "Nav_SitemapSwitcherButton";
             public static string SitemapSwitcherFlyout = "Nav_SitemapSwitcherFlyout";
@@ -73,10 +74,14 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             public static string TextFieldContainer = "Entity_TextFieldContainer";
             public static string TextFieldValue = "Entity_TextFieldValue";
             public static string TextFieldLookup = "Entity_TextFieldLookup";
+            public static string TextFieldLookupSearchButton = "Entity_TextFieldLookupSearchButton";
             public static string TextFieldLookupMenu = "Entity_TextFieldLookupMenu";
+            public static string LookupFieldExistingValue = "Entity_LookupFieldExistingValue";
             public static string LookupFieldDeleteExistingValue = "Entity_LookupFieldDeleteExistingValue";
+            public static string LookupFieldExpandCollapseButton = "Entity_LookupFieldExpandCollapseButton";
             public static string LookupFieldNoRecordsText = "Entity_LookupFieldNoRecordsText";
             public static string LookupFieldResultList = "Entity_LookupFieldResultList";
+            public static string LookupFieldResultListItem = "Entity_LookupFieldResultListItem";
             public static string LookupFieldHoverExistingValue = "Entity_LookupFieldHoverExistingValue";
             public static string LookupResultsDropdown = "Entity_LookupResultsDropdown";
             public static string TextFieldLookupFieldContainer = "Entity_TextFieldLookupFieldContainer";
@@ -117,6 +122,10 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             public static string EntityBooleanFieldCheckboxContainer = "Entity_BooleanFieldCheckboxContainer";
             public static string EntityBooleanFieldCheckbox = "Entity_BooleanFieldCheckbox";
             public static string EntityBooleanFieldList = "Entity_BooleanFieldList";
+            public static string EntityOptionsetStatusCombo = "Entity_OptionsetStatusCombo";
+            public static string EntityOptionsetStatusComboButton = "Entity_OptionsetStatusComboButton";
+            public static string EntityOptionsetStatusComboList = "Entity_OptionsetStatusComboList";
+            public static string EntityOptionsetStatusTextValue = "Entity_OptionsetStatusTextValue";
 
         }
 
@@ -257,6 +266,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Nav_QuickCreateMenuList", "//ul[contains(@id,'MenuSectionItemsquickCreate')]" },
             { "Nav_QuickCreateMenuItems", "//li[@role='menuitem']" },
             { "Nav_PinnedSitemapEntity","//li[contains(@data-id,'sitemap-entity-Pinned') and contains(@role,'treeitem')]"},
+            { "Nav_SitemapMenuGroup", "//ul[@role=\"group\"]"},
             { "Nav_SitemapMenuItems", "//li[contains(@data-id,'sitemap-entity')]"},
             { "Nav_SitemapSwitcherButton", "//button[contains(@data-id,'sitemap-areaSwitcher-expand-btn')]"},
             { "Nav_SitemapSwitcherFlyout","//div[contains(@data-lp-id,'sitemap-area-switcher-flyout')]"},
@@ -297,11 +307,15 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Entity_TextFieldContainer", "//*[contains(@id, \'[NAME]-FieldSectionItemContainer\')]" },
             { "Entity_TextFieldValue", "//input[contains(@data-id, \'[NAME].fieldControl\')]" },
             { "Entity_TextFieldLookup", "//*[contains(@id, \'systemuserview_id.fieldControl-LookupResultsDropdown')]" },
+            { "Entity_TextFieldLookupSearchButton", "//button[contains(@data-id, '[NAME].fieldControl-LookupResultsDropdown_[NAME]_search')]" },
             { "Entity_TextFieldLookupMenu", "//div[contains(@data-id, '[NAME].fieldControl-LookupResultsDropdown_[NAME]') and contains(@data-id,'tabContainer')]" },
-            { "Entity_LookupFieldDeleteExistingValue", "//*[contains(@data-id, \'[NAME].fieldControl-LookupResultsDropdown_[NAME]_selected_tag_delete')]" },
+            { "Entity_LookupFieldExistingValue", "//*[@data-id='[NAME].fieldControl-LookupResultsDropdown_[NAME]_selected_tag']" },
+            { "Entity_LookupFieldDeleteExistingValue", "//*[contains(@data-id, '[NAME].fieldControl-LookupResultsDropdown_[NAME]_selected_tag_delete')]" },
+            { "Entity_LookupFieldExpandCollapseButton", "//button[contains(@data-id,'[NAME].fieldControl-LookupResultsDropdown_[NAME]_expandCollapse')]/descendant::label[not(text()='+0')]" },
             { "Entity_LookupFieldNoRecordsText", "//*[@data-id=\'[NAME].fieldControl-LookupResultsDropdown_[NAME]_No_Records_Text']" },
-            { "Entity_LookupFieldResultList", "//*[@data-id=\'[NAME].fieldControl-LookupResultsDropdown_[NAME]_tab']" },
-            { "Entity_LookupFieldHoverExistingValue", "//*[contains(@data-id, \'[NAME].fieldControl-LookupResultsDropdown_[NAME]_SelectedRecordList')]" },
+            { "Entity_LookupFieldResultList", "//*[contains(@data-id, '[NAME].fieldControl-LookupResultsDropdown_[NAME]_tab')]" },
+            { "Entity_LookupFieldResultListItem", "//*[contains(@data-id, '[NAME].fieldControl-LookupResultsDropdown_[NAME]_resultsContainer')]" },
+            { "Entity_LookupFieldHoverExistingValue", "//*[contains(@data-id, '[NAME].fieldControl-LookupResultsDropdown_[NAME]_SelectedRecordList')]" },
             { "Entity_TextFieldLookupFieldContainer", "//*[contains(@data-id, '[NAME].fieldControl-Lookup_[NAME]')]" },
             { "Entity_RecordSetNavigatorOpen", "//button[contains(@data-lp-id, 'recordset-navigator')]" },
             { "Entity_RecordSetNavigator", "//button[contains(@data-lp-id, 'recordset-navigator')]" },
@@ -334,6 +348,10 @@ namespace Microsoft.Dynamics365.UIAutomation.Api.UCI
             { "Entity_BooleanFieldCheckboxContainer", "//div[contains(@data-id, '[NAME].fieldControl-checkbox-container')]"},
             { "Entity_BooleanFieldCheckbox", "//input[contains(@data-id, '[NAME].fieldControl-checkbox-toggle')]"},
             { "Entity_BooleanFieldList", "//select[contains(@data-id, '[NAME].fieldControl-checkbox-select')]"},
+            { "Entity_OptionsetStatusCombo", "//div[contains(@data-id, '[NAME].fieldControl-pickliststatus-comboBox')]"},
+            { "Entity_OptionsetStatusComboButton", "//div[contains(@id, '[NAME].fieldControl-pickliststatus-comboBox_button')]"},
+            { "Entity_OptionsetStatusComboList", "//ul[contains(@id, '[NAME].fieldControl-pickliststatus-comboBox_list')]"},
+            { "Entity_OptionsetStatusTextValue", "//span[contains(@id, '[NAME].fieldControl-pickliststatus-comboBox_text-value')]"},
 			
                         
             //CommandBar
