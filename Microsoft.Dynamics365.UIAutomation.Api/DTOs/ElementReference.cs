@@ -176,6 +176,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api
             { "Entity_SubGrid_Row"                  ,"//div[@id='[NAME]_divDataArea']/div/table/tbody/tr" },
             { "Entity_SubGrid_Cell"                 ,"//div[@id='[NAME]_divDataArea']/div/table/tbody/tr/td" },
             { "Entity_SubGrid_RowDeleteButton"      ,"//a[contains(@id,'gridBodyTable_delete_[RECORDID]')]" },
+            { "Entity_SubGrid_ItemsTotal"           ,"//span[@id='[NAME]_ItemsTotal']" },
 
             //Related MenuItems
             { "Related_Popout",                 "//li[contains(@data-id,\"tablist-tab_related\")]" },
@@ -374,6 +375,9 @@ namespace Microsoft.Dynamics365.UIAutomation.Api
             //Process
             { "Process_Category", "WorkflowCategory"},
             { "Process_Entity", "PrimaryEntity"},
+
+            //Login
+            { "Login_TaggingId", "navTabAppSwitcherImage_TabAppSwitcherNode"},
 
     };
 
@@ -696,6 +700,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api
             public static string SubGridRow = "Entity_SubGrid_Row";
             public static string SubGridCell = "Entity_SubGrid_Cell";
             public static string SubGridRowDeleteButton = "Entity_SubGrid_RowDeleteButton";
+            public static string SubGridItemsTotal = "Entity_SubGrid_ItemsTotal";
         }
         public static class MenuRelated
         {
@@ -853,6 +858,7 @@ namespace Microsoft.Dynamics365.UIAutomation.Api
             public static string SignIn = "Login_SignIn";
             public static string CrmMainPage = "Login_CrmMainPage";
             public static string StaySignedIn = "Login_StaySignedIn";
+            public static string TaggingId = "Login_TaggingId";
         }
         public static class Report
         {
